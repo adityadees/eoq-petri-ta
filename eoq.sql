@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Sep 2018 pada 17.09
--- Versi server: 10.1.31-MariaDB
--- Versi PHP: 7.2.3
+-- Generation Time: Oct 26, 2018 at 11:18 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pemesanan`
+-- Table structure for table `pemesanan`
 --
 
 CREATE TABLE `pemesanan` (
@@ -37,7 +37,7 @@ CREATE TABLE `pemesanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pemesanan`
+-- Dumping data for table `pemesanan`
 --
 
 INSERT INTO `pemesanan` (`pemesanan_id`, `produk_kode`, `pemesanan_jumlah`, `pemesanan_status`, `pemesanan_tanggal`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `pemesanan` (`pemesanan_id`, `produk_kode`, `pemesanan_jumlah`, `pem
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `permintaan`
+-- Table structure for table `permintaan`
 --
 
 CREATE TABLE `permintaan` (
@@ -62,7 +62,7 @@ CREATE TABLE `permintaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `permintaan`
+-- Dumping data for table `permintaan`
 --
 
 INSERT INTO `permintaan` (`permintaan_id`, `produk_kode`, `supplier_id`, `permintaan_jumlah`, `permintaan_biaya`, `permintaan_tanggal`) VALUES
@@ -72,7 +72,7 @@ INSERT INTO `permintaan` (`permintaan_id`, `produk_kode`, `supplier_id`, `permin
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `persediaan`
+-- Table structure for table `persediaan`
 --
 
 CREATE TABLE `persediaan` (
@@ -85,7 +85,7 @@ CREATE TABLE `persediaan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `persediaan`
+-- Dumping data for table `persediaan`
 --
 
 INSERT INTO `persediaan` (`persediaan_id`, `produk_kode`, `persediaan_eoq`, `persediaan_rop`, `persediaan_ss`, `persediaan_tanggal`) VALUES
@@ -100,7 +100,7 @@ INSERT INTO `persediaan` (`persediaan_id`, `produk_kode`, `persediaan_eoq`, `per
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Table structure for table `produk`
 --
 
 CREATE TABLE `produk` (
@@ -114,7 +114,7 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `produk`
+-- Dumping data for table `produk`
 --
 
 INSERT INTO `produk` (`produk_kode`, `produk_nama`, `produk_harga`, `produk_stok`, `produk_bpesan`, `produk_bsimpan`, `produk_leadtime`) VALUES
@@ -126,7 +126,7 @@ INSERT INTO `produk` (`produk_kode`, `produk_nama`, `produk_harga`, `produk_stok
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `supplier`
+-- Table structure for table `supplier`
 --
 
 CREATE TABLE `supplier` (
@@ -137,7 +137,7 @@ CREATE TABLE `supplier` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `supplier`
+-- Dumping data for table `supplier`
 --
 
 INSERT INTO `supplier` (`supplier_id`, `supplier_nama`, `supplier_tel`, `supplier_alamat`) VALUES
@@ -146,7 +146,7 @@ INSERT INTO `supplier` (`supplier_id`, `supplier_nama`, `supplier_tel`, `supplie
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -162,7 +162,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `user_username`, `user_password`, `user_nama`, `user_email`, `user_tel`, `user_alamat`, `user_role`, `user_foto`) VALUES
@@ -175,14 +175,14 @@ INSERT INTO `user` (`user_id`, `user_username`, `user_password`, `user_nama`, `u
 --
 
 --
--- Indeks untuk tabel `pemesanan`
+-- Indexes for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
   ADD PRIMARY KEY (`pemesanan_id`),
   ADD KEY `produk_kode` (`produk_kode`);
 
 --
--- Indeks untuk tabel `permintaan`
+-- Indexes for table `permintaan`
 --
 ALTER TABLE `permintaan`
   ADD PRIMARY KEY (`permintaan_id`),
@@ -190,71 +190,71 @@ ALTER TABLE `permintaan`
   ADD KEY `supplier_id` (`supplier_id`);
 
 --
--- Indeks untuk tabel `persediaan`
+-- Indexes for table `persediaan`
 --
 ALTER TABLE `persediaan`
   ADD PRIMARY KEY (`persediaan_id`),
   ADD KEY `persediaan_ibfk_1` (`produk_kode`);
 
 --
--- Indeks untuk tabel `produk`
+-- Indexes for table `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`produk_kode`);
 
 --
--- Indeks untuk tabel `supplier`
+-- Indexes for table `supplier`
 --
 ALTER TABLE `supplier`
   ADD PRIMARY KEY (`supplier_id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `persediaan`
+-- AUTO_INCREMENT for table `persediaan`
 --
 ALTER TABLE `persediaan`
   MODIFY `persediaan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT untuk tabel `supplier`
+-- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
   MODIFY `supplier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `pemesanan`
+-- Constraints for table `pemesanan`
 --
 ALTER TABLE `pemesanan`
   ADD CONSTRAINT `pemesanan_ibfk_1` FOREIGN KEY (`produk_kode`) REFERENCES `produk` (`produk_kode`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `permintaan`
+-- Constraints for table `permintaan`
 --
 ALTER TABLE `permintaan`
   ADD CONSTRAINT `permintaan_ibfk_1` FOREIGN KEY (`produk_kode`) REFERENCES `produk` (`produk_kode`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `permintaan_ibfk_2` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`supplier_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `persediaan`
+-- Constraints for table `persediaan`
 --
 ALTER TABLE `persediaan`
   ADD CONSTRAINT `persediaan_ibfk_1` FOREIGN KEY (`produk_kode`) REFERENCES `produk` (`produk_kode`) ON DELETE CASCADE ON UPDATE CASCADE;
